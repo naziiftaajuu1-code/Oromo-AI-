@@ -1,0 +1,7 @@
+Flask>=3.1,<4
+gunicorn>=23,<24
+beautifulsoup4>=4.13,<5
+requests>=2.32,<3
+ddgs>=9,<10
+pyTelegramBotAPI>=4.36,<5
+huggingface_hub>=0.35,<2
