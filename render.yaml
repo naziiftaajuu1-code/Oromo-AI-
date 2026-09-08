@@ -1,0 +1,40 @@
+services:
+  - type: web
+    name: oromoo-version-ai
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --workers 1 --threads 4 --timeout 180 --bind 0.0.0.0:$PORT app:app
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: HF_TOKEN
+        sync: false
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TEXT_MODEL
+        value: openai/gpt-oss-120b
+      - key: HF_PROVIDER
+        value: auto
+      - key: MAX_SCAN_SOURCES
+        value: "5"
+      - key: MAX_WEB_WORKERS
+        value: "3"
+      - key: MAX_ACTIVE_REQUESTS
+        value: "2"
+      - key: SEARCH_RESULTS
+        value: "8"
+      - key: MAX_CHARS_PER_PAGE
+        value: "3500"
+      - key: MAX_TOTAL_RESEARCH_CHARS
+        value: "12000"
+      - key: HF_RETRIES
+        value: "2"
+      - key: HF_DAILY_CALL_LIMIT
+        value: "0"
+      - key: OWNER_NAME
+        value: "Naziif Taajuu"
+      - key: OWNER_ZONE
+        value: "Godina Iluu Abbaa Booraa"
+      - key: OWNER_EDUCATION
+        value: "barataa kutaa 10ffaa"
